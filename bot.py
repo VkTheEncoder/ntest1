@@ -4,7 +4,7 @@
 import os, logging
 from flask import Flask, request
 from telegram import Bot, Update, InlineKeyboardButton, InlineKeyboardMarkup, InputFile
-from telegram.constants import ParseMode
+from telegram import ParseMode
 from telegram.ext import Dispatcher, CommandHandler, CallbackQueryHandler, CallbackContext
 
 from hianimez_scraper import (
