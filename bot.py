@@ -35,7 +35,7 @@ logger = logging.getLogger("hianime-bot")
 # -------------------------
 app = Flask(__name__)
 bot = Bot(token=TELEGRAM_TOKEN)
-dispatcher = Dispatcher(bot, None, workers=0, use_context=True)  # PTB v13.x style
+dispatcher = Dispatcher(bot, None, workers=4, use_context=True)  # PTB v13.x style
 
 # -------------------------
 # Handlers
