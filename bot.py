@@ -23,9 +23,10 @@ TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 if not TELEGRAM_TOKEN:
     raise RuntimeError("TELEGRAM_TOKEN is not set")
 
-KOYEB_APP_URL = os.getenv("KOYEB_APP_URL")  # e.g., https://yourapp.koyeb.app
-if not KOYEB_APP_URL:
-    raise RuntimeError("KOYEB_APP_URL is not set (public https URL needed for webhook)")
+# with this:
+PUBLIC_URL = os.getenv("APP_URL") or os.getenv("KOYEB_APP_URL")
+if not PUBLIC_URL:
+    raise RuntimeError("APP_URL or KOYEB_APP_URL must be set to your public https base URL")
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger("hianime-bot")
