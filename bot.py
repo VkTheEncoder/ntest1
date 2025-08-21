@@ -130,7 +130,7 @@ def episode_callback(update: Update, context: CallbackContext):
 
     if not subtitle_url:
         text += "📝 English subtitle: *not found*"
-        query.edit_message_text(text, parse_mode=ParseMode.MARKDOWN_V2)
+        query.edit_message_text(text, parse_mode=ParseMode.HTML)
         return
 
     # Download and send the English subtitle as file
@@ -139,11 +139,11 @@ def episode_callback(update: Update, context: CallbackContext):
     except Exception:
         logger.exception("Subtitle download error")
         text += "⚠️ Found English subtitle URL but failed to download."
-        query.edit_message_text(text, parse_mode=ParseMode.MARKDOWN_V2)
+        query.edit_message_text(text, parse_mode=ParseMode.HTML)
         return
 
     text += f"✅ English subtitle saved as `Episode {ep_num}.vtt`."
-    query.edit_message_text(text, parse_mode=ParseMode.MARKDOWN_V2)
+    query.edit_message_text(text, parse_mode=ParseMode.HTML)
 
     with open(local_vtt, "rb") as f:
         query.message.reply_document(
