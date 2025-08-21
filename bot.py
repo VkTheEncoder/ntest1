@@ -45,7 +45,7 @@ def start(update: Update, context: CallbackContext):
         "👋 Hi! Use /search <name>\n"
         "I’ll find your anime on your HiAnime domains and, for any episode you pick,\n"
         "return the **SUB: HD‑2** highest-quality stream + **English** subtitle.",
-        parse_mode=ParseMode.MARKDOWN_V2
+        parse_mode=ParseMode.HTML
     )
 
 def search_command(update: Update, context: CallbackContext):
